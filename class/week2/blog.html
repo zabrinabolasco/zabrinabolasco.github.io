@@ -17,48 +17,46 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style media="screen">
-      .height1{
+      .height1 {
         height: 600px;
       }
-      .height2{
+      .height2 {
         height: 150px;
       }
-      .blue{
-        background-color: blue;
-
-      }
-      .red{
-        background-color: red;
-      }
-      .yellow{
-        background-color: yellow;
-      }
     </style>
-
-
   </head>
 
   <body>
     <div class="container">
-        <div class="row">
-          <div class="col-md-3 height1 blue">
-          </div>
-        </div>
+      <div class="row">
+        <div class="col-md-3 height1 randomColor">
 
-        <div class="row">
-          <div class="col-med-9 height1 red">
-          </div>
         </div>
+        <div class="col-md-9 height1 randomColor">
 
-        <div class="row">
-          <div class="col-md-12 height2 yellow">
-          </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 height2 randomColor">
+
+        </div>
+      </div>
     </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        //get a random color between 0 and 255
+        function getRandomColor() {
+          return Math.floor(Math.random() * 255);
+        }
+        var randomColor = $(".randomColor");
+        $.each(randomColor, function(index, item) {
+          $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+        })
+      })
+    </script>
   </body>
 </html>
