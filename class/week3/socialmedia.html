@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social Media</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style media="screen">
+    .height1{
+      height: 75px;
+    }
+    .height2{
+      height: 170px;
+    }
+    .height3{
+      height: 100px;
+    }
+  </style>
+  </head>
+  <body>
+    <div class="container">
+      <!--start row 1-->
+        <div class="row">
+          <div class="col-md-12 height1 randomColor">
+          </div>
+        </div>
+      <!--end row 1-->
+
+      <!--start row 2-->
+        <div class="row">
+          <div class="col-md-3 height2 randomColor">
+          </div>
+          <div class="col-md-7 height2 randomColor">
+          </div>
+          <div class="col-md-2 height2 randomColor">
+          </div>
+        </div>
+      <!--end row 2-->
+
+      <!--start row 3-->
+        <div class="row">
+          <div class="col-md-3 height2 randomColor">
+          </div>
+          <div class="col-md-7 height2 randomColor">
+                <!--start nested row 1-->
+                  <div class="row">
+                      <div class="col-md-3 height3 randomColor">
+                      </div>
+                      <div class="col-md-9 height3 randomColor">
+                      </div>
+                  </div>
+                <!--end nested row 1-->
+                <!--start nested row 2-->
+                  <div class="row">
+                      <div class="col-md-3 height3 randomColor">
+                      </div>
+                      <div class="col-md-9 height3 randomColor">
+                      </div>
+                  </div>
+                <!--end nested row 2-->
+          </div>
+          <div class="col-md-2 height2 randomColor">
+          </div>
+        </div>
+      <!--end row 3-->
+
+      <!--start row 4-->
+      <div class="row">
+        <div class="col-md-3 height2 randomColor">
+        </div>
+        <div class="col-md-7 height2 randomColor">
+              <!--start nested row 1-->
+                <div class="row">
+                    <div class="col-md-3 height3 randomColor">
+                    </div>
+                    <div class="col-md-9 height3 randomColor">
+                    </div>
+                </div>
+              <!--end nested row 1-->
+              <!--start nested row 2-->
+                <div class="row">
+                    <div class="col-md-3 height3 randomColor">
+                    </div>
+                    <div class="col-md-9 height3 randomColor">
+                    </div>
+                </div>
+              <!--end nested row 2-->
+        </div>
+        <div class="col-md-2 height2 randomColor">
+        </div>
+      </div>
+      <!--end row 4-->
+
+      <!--start row 5-->
+      <div class="row">
+        <div class="col-md-12 height3 randomColor">
+        </div>
+      </div>
+      <!--end row 5-->
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+    //when the document is loaded
+      $(document).ready(function() {
+        //this function get a random color between 0 and 255
+        function getRandomColor() {
+          return Math.floor(Math.random() * 255);
+        }
+
+        // get all the elements (divs) with the class .randomColor
+        var randomColor = $(".randomColor");
+
+        //Loop through all elements
+        // for each element change the css background-color to RBG + three random colors
+        $.each(randomColor, function(index, item) {
+          $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+        })
+      })
+    </script>
+
+  </body>
+</html>
