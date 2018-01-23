@@ -74,3 +74,8 @@ img{
 .pictures{
   text-align: center;
 }
+
+.italics{
+  text-decoration: italics;
+  text-align: center;
+}
