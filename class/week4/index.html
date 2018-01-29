@@ -30,10 +30,11 @@
     <div class="container">
 
       <div class="row">
-
         <div class="col-md-12 height1 randomColor">
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-md-2 heigth2 randomColor">
         </div>
 
@@ -42,10 +43,11 @@
 
         <div class="col-md-2 height2 randomColor">
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-md-12 height1 randomColor">
         </div>
-
       </div>
 
     </div>
@@ -124,6 +126,24 @@
       var sentence = 'The Judgement of Paris.';
       var anotherSentence = "Anderson's class";
 
+      var salary1 = 100000;
+      var salary2 = "100000";
+
+      var taxes = 25000;
+
+      console.log("My take home pay is " + (salary1-taxes));
+
+      console.log("1a bunch of info : " + salary + " and " + carPrice + " and even more " + isDayTime));
+      var myConcatenation = "2a bunch of info : " + salary + " and " + carPrice + " and even more " + isDayTime;
+
+      console.log(myConcatenation);
+
+      function writeToConsole(myString){
+        console.log(myString);
+      }
+
+      writeToConsole(myConcatenation);
+      writeToConsole("3"+myConcatenation);
     </script>
   </body>
 </html>
