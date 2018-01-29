@@ -24,6 +24,22 @@
         height: 100%;
         width: 100%;
       }
+
+      .relativeParent{
+        position: relative;
+      }
+
+      .absoluteChild{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .flex{
+        display: flex;
+        justify-content: center;
+      }
     </style>
   </head>
 
@@ -33,9 +49,10 @@
 
       <div class="row">
         <div class="col-md-3 height1">
-          <img src="img/dog.png" class="fitHeightWidth" alt="square1">
+          <img src="img/dog.jpg" class="fitHeightWidth" alt="square1">
         </div>
-        <div class="col-md-3 height1 randomColor">
+        <div class="col-md-3 height1">
+          <img src="img/tree.jpg" class="absoluteChild" alt="square2">
         </div>
         <div class="col-md-3 height1 randomColor">
         </div>
