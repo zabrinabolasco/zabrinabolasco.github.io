@@ -39,6 +39,19 @@
       .flex{
         display: flex;
         justify-content: center;
+        align-items: center;
+      }
+
+      .flexSpaceBetween{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .flexSpaceAround{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
       }
     </style>
   </head>
@@ -49,21 +62,30 @@
 
       <div class="row">
         <div class="col-md-3 height1">
-          <img src="img/dog.jpg" class="fitHeightWidth" alt="square1">
+            <img src="img/dog.jpg" class="fitHeightWidth" alt="square1">
         </div>
         <div class="col-md-3 height1">
-          <img src="img/tree.jpg" class="absoluteChild" alt="square2">
+            <img src="img/tree.jpg" class="absoluteChild" alt="square2">
+        </div>
+        <div class="col-md-3 height1 flex">
+            <img src="img/tree.jpg" alt="square2">
         </div>
         <div class="col-md-3 height1 randomColor">
         </div>
+
       </div>
 
       <div class="row">
-        <div class="col-md-12 height1 randomColor">
+        <div class="col-md-12 height1 flexSpaceAround">
+              <img src="img/dog.jpg" alt="square1">
+              <img src="img/dog.jpg" alt="square1">
+              <img src="img/dog.jpg" alt="square1">
         </div>
       </div>
 
       <div class="row">
+        <div class="col-md-3 height1 randomColor">
+        </div>
         <div class="col-md-3 height1 randomColor">
         </div>
         <div class="col-md-3 height1 randomColor">
