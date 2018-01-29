@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class 4</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style media="screen">
+      .height1 {
+        height: 100px;
+      }
+      .height2 {
+        height: 600px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-12 height1 randomColor">
+        </div>
+
+        <div class="col-md-2 heigth2 randomColor">
+        </div>
+
+        <div class="col-md-10 height2 randomColor">
+        </div>
+
+        <div class="col-md-2 height2 randomColor">
+        </div>
+
+        <div class="col-md-12 height1 randomColor">
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+    //when the document is loaded
+      $(document).ready(function() {
+        //this function get a random color between 0 and 255
+        function getRandomColor() {
+          return Math.floor(Math.random() * 255);
+        }
+
+        // get all the elements (divs) with the class .randomColor
+        var randomColor = $(".randomColor");
+
+        //Loop through all elements
+        // for each element change the css background-color to RBG + three random colors
+        $.each(randomColor, function(index, item) {
+          $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+        })
+      })
+    </script>
+
+    <script type="text/javascript">
+    /*
+    multi line comment
+    */
+    // single line comment
+    /*
+      //alert("my 35!"); //name of function, then () to call the function
+      //in this case "my 35!" is called the "parameter"
+      //in this case it's text, whcih is always within '' or " "
+      console.log("Write to the console...");
+      // above are built-in functions
+
+      //we can also define our own function
+
+      function myFirstFunction(){ //called function definition
+      //whatever is in the curly brackets will run when we call the function
+      console.log("Write from inside the function...");
+      }
+
+      myFirstFunction();
+      myFirstFunction();
+      myFirstFunction();
+      myFirstFunction();
+      //a function call
+
+      function myFunctionwithParameter(name){
+
+        console.log("Hello "+name);
+      }
+
+      myFunctionwithParameter("Anderson");
+      myFunctionwithParameter(" , how are you?");
+      */
+    </script>
+  </body>
+</html>

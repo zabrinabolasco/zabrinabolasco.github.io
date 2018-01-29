@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data types</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <style media="screen">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image: url("pattern.png");
+      background-repeat: repeat;
+    }
+
+    div {
+      color: white;
+      text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      text-align: center;
+      font-size: 2em;
+      box-shadow: 1px 4px 10px 0px rgba(119, 119, 119, 0.91);
+      -moz-box-shadow: 1px 4px 10px 0px rgba(119, 119, 119, 0.91);
+      -webkit-box-shadow: 1px 4px 10px 0px rgba(119, 119, 119, 0.91);
+      padding: 15px;
+      text-transform: lowercase;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    var arr = [
+      "Your age", "Your name", "A light switch", "Night and day", "Yes or no", "True or false", "Living or dead", "The year", "A paragraph", "A sentence", "The price of a car", "A list of grades", "A list of prices", "A list of names",
+      "An auto trader catalogue", "A list of concert listings", "Info about Hockey players", "A bunch of product information", "Employee profiles", "Salary", "Weight", "Address", "Credit card number", "Email address"
+    ];
+
+    //add <br> if length > max
+    function breakLine(max, text) {
+      var newWord = "";
+      var count = 0;
+      for (var i = 0; i < text.length; i++) {
+        count++;
+        if (count < max) {
+          newWord += text.charAt(i);
+          continue;
+        }
+        if (text.charAt(i) === " ") {
+          newWord += "<br>";
+          count = 0;
+          continue;
+        }
+        newWord += text.charAt(i);
+      }
+      return newWord;
+    }
+
+    //make the
+    function makeDiv(text) {
+      var color = '#' + Math.round(0xffffff * Math.random()).toString(16);
+      var newdiv = $('<div/>').css({
+        'background-color': color
+      });
+
+      var posx = Math.random() * $(document).width().toFixed() - 150;
+      var posy = Math.random() * $(document).height().toFixed() - 150;
+      if (posx < 100) {
+        posx = 100;
+      }
+      if (posy < 100) {
+        posy = 100;
+      }
+      newdiv.html(text).css({
+        'position': 'absolute',
+        'left': posx + 'px',
+        'top': posy + 'px'
+      }).appendTo('body').draggable();
+    };
+
+    $(document).ready(function() {
+      for (var i = 0; i < arr.length; i++) {
+        makeDiv(breakLine(10, arr[i]));
+      }
+    })
+  </script>
+</body>
+
+</html>
