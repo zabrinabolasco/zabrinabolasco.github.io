@@ -142,10 +142,10 @@
     var fullSentence="";
     for (var j=0;j<mySentence.length;j=j+1){
       //add each word
-      fullSentence = fullSentence + mySentence[j]+" ";
+      fullSentence = fullSentence +mySentence[j]+" ";
     }
     //output the full sentence
-    console.log("The full sentence is "+ fullSentence);
+    console.log("The full sentence is: "+fullSentence);
 
     //$ means jQuery functions
     //document is the entire html as a built-in variable
@@ -156,7 +156,7 @@
       // call the html function
       //html function (some text) writes HTML
       //what we give the html function is a parameter
-      $(".myConsole").html("The full sentence is "+ fullSentence);
+      $(".myConsole").html("The full sentence is: "+fullSentence);
 
       //append adds to the existing html
       //we can of course write actual html
