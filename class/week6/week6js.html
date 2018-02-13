@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style media="screen">
+  .height1{
+    height: 80px;
+  }
+
+  .height2{
+    height: 600px;
+  }
+  .flexSpaceAround{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .flexSingleItem{ /*center the child element*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  </style>
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 height1 randomColor">
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 height2 randomColor">
+            </div>
+            <div class="col-md-8 height2 myConsole">
+            </div>
+            <div class="col-md-2 height2 randomColor">
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 height1 randomColor">
+          </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+    //when the document is loaded
+      $(document).ready(function() {
+        //this function get a random color between 0 and 255
+        function getRandomColor() {
+          return Math.floor(Math.random() * 255);
+        }
+
+        // get all the elements (divs) with the class .randomColor
+        var randomColor = $(".randomColor");
+
+        //Loop through all elements
+        // for each element change the css background-color to RBG + three random colors
+        $.each(randomColor, function(index, item) {
+          $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+        })
+      })
+      </script>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+
+          function writeToCenter(str){
+            $(".myConsole").append("<br>"+str);
+            }
+
+          function writeObjectToCenter(obj){
+            $(".myConsole").append("<br>"+ JSON.stringify(obj) );
+            }
+
+            writeToCenter("<h4>testing my console</h4>");
+
+            function addNumbers(num1, num2){
+              var result = num1 + num2;
+              return result;
+              }
+
+                var firstNumber = 10;
+                var secondNumber = 15;
+                var thirdNumber = addNumbers(firstNumber, secondNumber);
+
+                writeToCenter("third number is "+thirdNumber);
+
+                writeToCenter("another number is "+ addNumbers (6, 9));
+
+
+          //declare empty object with {}
+            var myDog = {
+              "name":"Kai",
+              "breed":"Boston Terrier",
+              "sound":"bark",
+              "legs":"4",
+              "called":"good boy"
+              };
+
+              //add a new key value pair
+              myDog.sound = "bark";
+              myDog.legs = 4;
+
+              writeObjectToCenter(myDog);
+
+              //loop through every key
+              for(var key in myDog){
+                writeToCenter("this key is: " +key+" and the value is "+myDog[key]);
+              }
+
+              //reference a key this way:
+              writeToCenter("here is a value "+myDog["name"]);
+
+              //actually the conventional way is this way: dot notation
+              writeToCenter("here is a value "+myDog.breed);
+
+        }) //end of document
+
+      </script>
+
+  </body>
+</html>
