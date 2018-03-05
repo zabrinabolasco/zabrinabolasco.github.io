@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cats</title>
+  <style media="screen">
+    .height1 {
+      height: 75px;
+    }
+    .height2 {
+      height: 600px;
+    }
+  </style>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 height1 randomColor">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 height2">
+
+      </div>
+      <div class="col-md-8 output">
+
+      </div>
+      <div class="col-md-2 height2">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 height1">
+
+      </div>
+    </div>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      //get a random color between 0 and 255
+      function getRandomColor() {
+        return Math.floor(Math.random() * 255);
+      }
+      var randomColor = $(".randomColor");
+      $.each(randomColor, function(index, item) {
+        $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+      })
+    })
+  </script>
+
+  <script>
+    var cats = [{
+        "breed": "tabby",
+        "hairLength": "medium",
+        "color": "black & white",
+        "isOutdoor": true,
+        "isFoundInWild": true,
+        "age": 1,
+        "name": "Smokey",
+        "owner": "Anderson",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat0.jpg"
+      },
+      {
+        "breed": "panther",
+        "hairLength": "short",
+        "color": "black",
+        "isOutdoor": true,
+        "isFoundInWild": true,
+        "age": 56,
+        "name": "T'Challa",
+        "owner": "Zeus",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat1.jpg"
+      },
+      {
+        "breed": "britishShorthair",
+        "hairLength": "short",
+        "color": "grey",
+        "isOutdoor": true,
+        "isFoundInWild": true,
+        "age": 22,
+        "name": "puss",
+        "owner": "sydney",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat2.jpg"
+      },
+      {
+        "breed": "Tabby",
+        "hairLength": "Short",
+        "color": "Orange",
+        "isOutdoor": false,
+        "isFoundInWild": false,
+        "age": 7,
+        "name": "Kitty",
+        "owner": "Kevin",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat3.jpg"
+      },
+      {
+        "breed": "Persian",
+        "hairLength": "long",
+        "color": "white",
+        "isOutdoor": "false",
+        "isFoundInWild": "false",
+        "age": 4,
+        "name": "Magnolia",
+        "owner": "Loucas",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat4.jpg"
+      },
+      {
+        "breed": "Lion",
+        "hairLength": "long",
+        "color": "beige",
+        "isOutdoor": true,
+        "isFoundInWild": true,
+        "age": 7,
+        "name": "Leon",
+        "owner": "none",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat5.jpg"
+      },
+      {
+        "breed": "maineCoon",
+        "hairLength": "long",
+        "isOutdoor": true,
+        "isFoundInWild": false,
+        "age": 6,
+        "color": "white",
+        "name": "flufferButt",
+        "owner": "shouldBeMine",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat6.jpg"
+      },
+      {
+        "breed": "Tabby",
+        "hairLength": "medium-long",
+        "color": "black and orange",
+        "isOutdoor": "false",
+        "isFoundInWild": "false",
+        "age": 16,
+        "name": "Nala",
+        "owner": "Sarah",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat7.jpg"
+      },
+      {
+        "breed": "Munchkin",
+        "hairLength": "short",
+        "color": "white",
+        "isOutdoor": false,
+        "isFoundInWild": false,
+        "age": 5,
+        "name": "Muncher",
+        "owner": "Abel",
+        "imgUrl": "http://andersonguelphjs.github.io/class/week7/img/cat9.jpg"
+      }
+    ];
+    $(document).ready(function() {
+      //$(".output").html("test output");
+      var html = "<table class='table table-striped table-hover'>" +
+        "<tr>" +
+        "<th>picture</th>" +
+        "<th>name</th>" +
+        "<th>age</th>" +
+        "<th>owner</th>" +
+        "<th>breed</th>" +
+        "<th>color</th>" +
+        "<th>hair length</th>" +
+        "<th>outdoor ?</th>" +
+        "<th>wild ?</th>" +
+        "</tr>";
+      //here is the loop of the array 'cats'
+      for (var i = 0; i < cats.length; i++) {
+        html += "<tr>" +
+          "<td><img src='" + cats[i].imgUrl + "' /></td>" +
+          "<td>" + cats[i].name + "</td>" +
+          "<td>" + cats[i].age + "</td>" +
+          "<td>" + cats[i].owner + "</td>" +
+          "<td>" + cats[i].breed + "</td>" +
+          "<td>" + cats[i].color + "</td>" +
+          "<td>" + cats[i].hairLength + "</td>" +
+          "<td>" + cats[i].isOutdoor + "</td>" +
+          "<td>" + cats[i].isFoundInWild + "</td>" +
+          "</tr>";
+      }
+      html += "</table>";
+      $(".output").html(html);
+    });
+  </script>
+
+</body>
+
+</html>
