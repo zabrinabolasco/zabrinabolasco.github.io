@@ -31,29 +31,6 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <img src="https://images.unsplash.com/photo-1511949817959-d24d516a8f8e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7ff012e291ab08145b3f7a995cd644ef&auto=format&fit=crop&w=1050&q=80"
-              alt="planting">
-              <div class="carousel-caption">
-                Planting in a garden
-              </div>
-            </div>
-
-            <div class="item">
-              <img src="https://images.unsplash.com/photo-1493957988430-a5f2e15f39a3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37d72b09cb79501cfe2b6ed7ccbf8214&auto=format&fit=crop&w=1050&q=80"
-              alt="cactus">
-              <div class="carousel-caption">
-                A cactus
-              </div>
-            </div>
-
-            <div class="item">
-              <img src="https://images.unsplash.com/photo-1485713112743-8a47d3da8f20?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b91c8bb2bb8906e14737763926776e70&auto=format&fit=crop&w=1050&q=80"
-               alt="greenhouse">
-              <div class="carousel-caption">
-                Inside a greenhouse
-              </div>
-            </div>
 
 
           </div>
@@ -75,5 +52,47 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+
+    //get the JSON
+
+    var url ="https://andersonguelphjs.github.io/class/week8/assets/carousel.json"
+
+    $.getJSON(url).done(function(data){
+        console.log("success! ");
+        console.dir (data);
+
+        //paste everything here
+        var dataHtml=" ";
+        for(var i=0;i<data.length;i++){
+          console.log("i "+i);
+
+              dataHtml+='<div class="'+data[i].class+'">'+
+                '<img src="'+data[i].source+'"  alt="">'+
+                '<div class="carousel-caption">'+
+                    data[i].caption+
+                '</div>'+
+              '</div>';
+        }
+
+        $(document).ready(function(){
+            $(".carousel-inner").html(dataHtml);
+            //we need to explicitly call this with dynamic html
+            $(".carousel").carousel();
+        })
+
+
+      }).fail(function(){
+        console.log("failed! "+JSON.stringify(data));
+    });
+
+
+
+
+    </script>
+
+
+
   </body>
 </html>
