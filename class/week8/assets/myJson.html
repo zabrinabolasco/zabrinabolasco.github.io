@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Cities Around The World</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -18,6 +18,51 @@
     <![endif]-->
   </head>
   <body>
+    <style media="screen">
+    .carousel-inner{
+      max-height:500px;
+      display:flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    img{
+      max-height:500px;
+    }
+    </style>
+
+  <div class="container">
+    <div class="row">
+      <!--drop the code in here-->
+
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for data -->
+          <div class="carousel-inner" role="listbox">
+
+
+
+          </div>
+      </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+          </div>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -25,35 +70,31 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
 
-    var url ="https://zabrinabolasco.github.io/class/week8/assets/myJson.json"
+    var url = "https://zabrinabolasco.io/class/week8/assets/myJson.json";
 
-    $.getJSON(url).done(function(data){
-        console.log("success! ");
-        console.dir (data);
-
-        //paste everything here
-        var dataHtml=" ";
+      $.getJSON(url).done(function(data){
+        console.log("Success ");
+        console.dir(data);
+        var dataHtml="";
         for(var i=0;i<data.length;i++){
-          console.log("i "+i);
-
-              dataHtml+='<div class="'+data[i].class+'">'+
-                '<img src="'+data[i].source+'"  alt="">'+
-                '<div class="carousel-caption">'+
-                    data[i].caption+
-                '</div>'+
-              '</div>';
+          //console.log("i" +i);
+          dataHtml +='<div class="'+data[i].class+'">'
+            +'<img src="'+data[i].source+'" alt="'+data[i].alternate+'">'
+            +'<div class="carousel-caption">'
+              +data[i].city
+            +'</div>'
+          +'</div>';
         }
 
         $(document).ready(function(){
-            $(".carousel-inner").html(dataHtml);
-            //we need to explicitly call this with dynamic html
-            $(".carousel").carousel();
+          $(".carousel-inner").html(dataHtml);
+          // we need to explicitly call this function again
+          $(".carousel").carousel();
         })
 
-
-      }).fail(function(){
-        console.log("failed! "+JSON.stringify(data));
-    });
+      }).fail(function(data){
+        console.log("Failed "+JSON.stringify(data));
+      });
 
     </script>
   </body>
