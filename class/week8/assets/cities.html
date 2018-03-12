@@ -19,7 +19,6 @@
   </head>
   <body>
 
-
 <div class="container">
   <div class="row">
     <!--drop the code in here-->
@@ -81,6 +80,8 @@
       // we need to explicitly call this function again
       $(".carousel").carousel();
     })
+
+
   }).fail(function(data){
     console.log("Failed "+JSON.stringify(data));
   });

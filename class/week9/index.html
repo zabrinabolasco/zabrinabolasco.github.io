@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style media="screen">
+      .myHtml{display: flex;
+              justify-content: space-around;
+              align-items: center;}
+
+      .font20{font-size: 20px;}
+
+      .boldText{font-weight: bold;}
+
+      .greyBackground{background-color: #efefef;}
+
+    </style>
+
+  </head>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 myHtml">
+      </div>
+    </div>
+  </div>
+
+
+  <body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+      var url="https://sluu01.github.io/class/week8/myJSON.json";
+      //   {"name": "poutine",
+      //   "texture":"chewy",
+      //   "caption":"fries with cheese curds and gravy",
+      //   "type":"fries",
+      //   "temperature":"hot",
+      //   "origin": "Montreal"};
+
+      function processData(d){
+        console.dir(d);
+
+        var html=""; //make variuable to hold the html
+        //for loop
+        for(var i=0;i<d.length;i++){
+          html+="<div class='myItem'>"; //container for this item
+          html+="<div class='font20 boldText'>"+d[i].name+"</div>";
+          html+="<div>"+d[i].texture+"</div>";
+          html+="<div>"+d[i].caption+"</div>";
+          html+="<div>"+d[i].type+"</div>";
+          html+="<div>"+d[i].temperature+"</div>";
+          html+="<div>"+d[i].origin+"</div>";
+          html+="<button type='button' class='itemButton btn btn-default'>Click!</button>";
+          html+="</div>"; }
+
+          $(document).ready(function(){
+            $(" .myHtml").html(html);
+
+            //write an event to handle a click (event-handler functions)
+            //event for all buttons; turn on click, execute function
+            $("button").on("click", function(){
+              console.log("click");
+              //go up the tree to the closest myItem and toggle the CSS class
+              $(this).closest("myItem").toggleClass("greyBackground");
+            });
+
+          })
+        }
+
+      //get json
+      $.get(url)
+        .done(function(data){//what comes back is out into "data"
+          console.log("success!! ");
+          //do something with the data
+          processData(data);
+        })
+
+
+        .fail(function(data){
+          console.log("failed "+JSON.stringify(data));
+        })
+
+
+    </script>
+
+  </body>
+</html>
