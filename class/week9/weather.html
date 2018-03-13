@@ -12,19 +12,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
 
     <style media="screen">
-      .gif{
-        text-align: center;
-        padding-top: 20px;
-      }
-      body{background-color: lightblue;}
+    @import url('https://fonts.googleapis.com/css?family=Rammetto+One');
 
-      h1{background-color: black;
+      .gif{text-align: center;
+          padding-top: 20px;}
+
+      body{background-color: lightblue;
+          background-image: url(rain.gif);
+          background-size: cover;}
+
+      h1{font-family: 'Rammetto One', cursive;
+          font-size: 50px;
           text-align: center;
-          color: white;
-          padding-top: 20px;
-          padding-bottom: 20px;
+          color: black;
+          /* padding-top: 20px;
+          padding-bottom: 20px; */
           margin-left: 55px;
           margin-right: 55px;}
+
+      h2{font-size: 30px;
+          text-align: center;
+      }
+
+      .day{font-size:250%;
+            font-weight: 500;
+            text-decoration: underline;}
+
 
       .weatherDiv{display: flex;
                   justify-content: space-around;
@@ -33,56 +46,59 @@
                   margin-top: 11px;
                   padding-bottom: 12px;}
 
-      .wi{font-size: 3em;}
+      .wi{font-size:4em;
+          margin-top:40px;
+          margin-bottom: 40px;}
 
-      ul {
-      list-style-type: none;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      margin-left: 55px;
-      margin-right: 55px;
-      overflow: hidden;
-      background-color: #333;
-      font-size: 20px;
-      text-align: right;}
+      .high, .low{font-size: 20px;
+                  text-align: center;
+                  font-weight: bold;
+                  color: darkblue;}
 
-      li {
-          float: left;
-      }
+      .high{margin-top:30%;}
 
-      li a {
-          display: block;
-          color: white;
-          text-align: right;
-          padding: 14px 16px;
-          text-decoration: none;
-      }
+      ul {list-style-type: none;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          margin-left: 55px;
+          margin-right: 55px;
+          overflow: hidden;
+          background-color: #333;
+          font-size: 20px;
+          text-align: right;}
 
-      li a:hover {
-          background-color: #111;
-      }
-      .wrap{
-          position: relative;
-          left: 50%;
-          transform: translatex(-50%);
+      li {float: left;}
 
-      }
+
+      li a {display: block;
+            color: white;
+            text-align: right;
+            padding: 14px 16px;
+            text-decoration: none;}
+
+      li a:hover {background-color: #111;}
+
+      img.resize {max-width:10%;
+                  max-height:10%;}
 
     </style>
 
   </head>
   <body>
 
-  <h1>10-Day Weather Forecast</h1>
+  <h1><img class="resize" src="weather.gif" alt="changing weather gif">10-Day Weather Forecast<img class="resize" src="weather.gif" alt="changing weather gif"></h1>
 
-<div class="wrap">
+  <h2>Toronto, Ontario</h2>
+
+
+<!-- <h3>
   <ul class="nav">
       <li><a href="home.asp">Home</a></li>
       <li><a href="weather.asp">News</a></li>
       <li><a href="about.asp">Contact</a></li>
       <li><a href="news.asp">About</a></li>
   </ul>
-</div>
+</h3> -->
 
   <div class="container">
     <div class="row">
@@ -97,7 +113,6 @@
         </div>
 
         <div class="col-md-12 gif">
-          <img src="weather.gif" alt="changing weather gif">
         </div>
 
 
@@ -127,12 +142,14 @@
         //for loop
         for (var i=0;i<f.length;i++){
           console.log(" i"+i);
-          html+="<div class='dayOfWeek'>"
-          html+="<div class='text'>"+f[i].text+"</div>"
-          html+="<div class='date'>"+f[i].date+"</div>"
-          html+="<div class='day'>"+f[i].day+"</div>"
-          html+="<div class='icon'><i class='wi "+iconClasses[f[i].text]+" '></i></div>";
-          html+="</div>"
+              html+="<div class='dayOfWeek'>"
+              html+="<div class='day'>"+f[i].day+"</div>"
+              html+="<div><i class='wi "+iconClasses[f[i].text]+"'></i></div>"
+              html+="<div class='date'>"+f[i].date+"</div>"
+              html+="<div class='text'>"+f[i].text+"</div>"
+              html+="<div class='high'>"+f[i].high+"</div>"
+              html+="<div class='low'>"+f[i].low+"</div>"
+              html+="</div>"
           }
 
           $(document).ready(function(){
