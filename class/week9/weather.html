@@ -38,6 +38,9 @@
             font-weight: 500;
             text-decoration: underline;}
 
+      .dayOfWeek{margin-top:6%;
+                background-color: white;
+                padding:10px;}
 
       .weatherDiv{display: flex;
                   justify-content: space-around;
@@ -69,7 +72,6 @@
 
       li {float: left;}
 
-
       li a {display: block;
             color: white;
             text-align: right;
@@ -91,14 +93,14 @@
   <h2>Toronto, Ontario</h2>
 
 
-<!-- <h3>
+<h3>
   <ul class="nav">
       <li><a href="home.asp">Home</a></li>
       <li><a href="weather.asp">News</a></li>
       <li><a href="about.asp">Contact</a></li>
       <li><a href="news.asp">About</a></li>
   </ul>
-</h3> -->
+</h3>
 
   <div class="container">
     <div class="row">
@@ -114,8 +116,7 @@
 
         <div class="col-md-12 gif">
         </div>
-
-
+        
     </div>
   </div>
 
@@ -124,8 +125,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
-
-    var iconClasses =
+    var iconClasses=
     {"Rain And Snow": "wi-rain-mix",
       "Mostly Cloudy": "wi-day-cloudy",
       "Breezy": "wi-windy",
@@ -149,8 +149,7 @@
               html+="<div class='text'>"+f[i].text+"</div>"
               html+="<div class='high'>"+f[i].high+"</div>"
               html+="<div class='low'>"+f[i].low+"</div>"
-              html+="</div>"
-          }
+              html+="</div>"}
 
           $(document).ready(function(){
             $(".weatherDiv").html(html);

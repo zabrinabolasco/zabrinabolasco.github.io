@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lottery</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <style media="screen">
+    .winningTicket::before{content:"Winning Ticket: ";}
+
+    .myTicket::before{content:"My Ticket: ";}
+
+    .winningTicket, .myTicket{display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+                  padding 50px;}
+
+    .lotteryBall{height: 50px;
+                width: 50px;
+                line-height: 50px;
+                background-color: purple;
+                border-radius: 25px;
+                text-align: center;
+                color: #FFF;
+                font-weight: bold;}
+    .match{}
+  </style>
+
+  <body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 winningTicket">
+            <div class="lotteryBall match">12</div>
+            <!-- <div class="lotteryBall">16</div>
+            <div class="lotteryBall">22</div>
+            <div class="lotteryBall">31</div>
+            <div class="lotteryBall">35</div>
+            <div class="lotteryBall">41</div>
+            <div class="lotteryBall">47</div> -->
+          </div>
+      </div>
+
+        <div class="row">
+          <div class="col-md-12 myTicket">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 myOuput">
+          </div>
+        </div>
+  </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+      //write pseudocode
+      //
+      //
+      var winningTicket = getRandomArray();
+      var myTicket = getRandomArray();
+      $(".myOuput").append("winningTicket "+winningTicket.join(";")+"<br>");
+      $(".myOuput").append("myTicket "+myTicket.join(";")+"<br>");
+      writeArrayToDiv(winningTicket,".winningTicket");
+      writeArrayToDiv(myTicket,".myTicket");
+      compareTickets();
+
+      function compareTickets(){
+        for(var i=0;i< winningTicket.length;i++){
+          $(".myTicket").find("div[data-value='"+String(winningTicket[i])+"']").addClass("match");
+        }
+      }
+      function writeArrayToDiv(arr, selector){
+        var html="";
+        for(var i=0;i<arr.length;i++){
+          html+="<div data-value='"+arr[i]+"'class='lotteryBall'>"+arr[i]+"</div>";
+        }
+        $(selector).html(html);
+      }
+
+      function sortNumber(a, b){//sort from low to high
+        return a - b;
+      }
+
+      function getRandomArray(){
+        var tempArray = [];
+
+        while (tempArray.length < 7){ //keep doing unitl we have 7
+          var randomNumber = Math.floor(Math.random()*49+1); //get a randomNumber
+          if (tempArray.indexOf(randomNumber)=-1){ //not in the array
+            tempArray.push(randomNumber); //add to the array
+          }
+        }
+
+          // for (var i = 0; i < 7; i++) {
+          //   tempArray.push(Math.floor(Math.random()*49+1));
+          // }
+          //sorted numbers
+          //no duplicates
+          tempArray.sort(sortNumber);
+          return tempArray;
+      }
+
+
+    </script>
+  </body>
+</html>
