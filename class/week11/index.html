@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chindogu</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style media="screen">
+      .height1 {
+        height: 100px;
+      }
+      .height2 {
+        height: 500px;
+      }
+
+      .ad{
+        width: 100%;
+        margin-top: 3em;
+        margin-bottom: 3em;
+      }
+
+    </style>
+  </head>
+
+<body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 logo">
+          Chingdogu.com
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="selectContainer flexSpaceAround">
+            <div class="selectLabel">
+              Choose another product type :
+            </div>
+            <div>
+              <select class="form-control" name="">
+              </select>
+      </div>
+
+        </div>
+
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-2 adsLeft">
+        </div>
+        <div class="col-md-8 output flexSpaceAround">
+        </div>
+        <div class="col-md-2 adsRight">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 footer">
+
+          <hr /><span>© 2018 Chindogu.com</span>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+
+
+function getAds(){
+
+  var ads = [
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad1.jpeg",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad2.jpg",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad3.jpeg",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad4.jpeg",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad5.jpg",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad6.png",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad7.png",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad8.jpg",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad9.png",
+           "https://andersonguelphjs.github.io/class/week11/img/ads/ad10.jpeg"
+         ];
+
+    for(var i=0;i<3;i++){
+      $(".adsLeft").append("<div class='ad'><img src='"+
+      ads[Math.floor(Math.random()*10)]+"'/></div>");
+
+      $(".adsRight").append("<div class='ad'><img src='"+
+      ads[Math.floor(Math.random()*10)]+"'/></div>");
+
+    }
+
+}
+
+function getOptions(){
+
+  var html="";
+
+  var options = {
+        "Anderson 1": "https://andersonguelphjs.github.io/class/week11/myJSON.json",
+        "Anderson 2": "https://andersonguelphjs.github.io/class/week11/myJSON2.json"
+      };
+//loop through subject
+for(var key in options){
+  html+="<option value='"+options[key]+"'>"+key+"</option>"
+
+  }
+
+  //write the options to the select
+  $(".selectContainer").find("select").html(html);
+
+
+}
+
+//will contain all events
+  function initEvents(){
+
+    //do this when user chanfes the select
+    $(".selectContainer").find("select").on("change", function(){
+        var val = $(this).val();
+        if (val){
+          $.get(val)
+          .done(function(data){
+            console.log("Success! get select json! ");
+            console.dir(data);
+            writeJSONToDom(data.Sheet1);
+          })
+          .fail(function(data){
+            console.log("Fail! get select json ");
+            console.dir(data);
+          })
+        }
+        //alert("value "+val);
+      })
+    }
+
+function writeJSONToDom(d){
+  var html="";
+  console.log("writeJSONToDom");
+  console.dir(d);
+  for( var jsonObj in d){
+    console.log("an object "+jsonObj);
+    console.log(d[jsonObj]);
+    html+="<div data id='"+jsonObj+"' class='itemContainer'>"
+    //here loop through the keys
+
+
+    for (key in d[jsonObj]){//loop through the keys of each object
+      if (key==="itemId"){
+        continue;
+      }
+      if (d[jsonObj][key].indexOf("github")!==-1){
+        // if github text appears in the value
+        html+="<div class='imageContainer'><img src='https://"+d[jsonObj][key]+"'></div>";
+      }
+      else{
+        html+="<div class='"+key+"'>"+d[jsonObj][key]+"</div>";
+        }
+      }
+
+        html+="</div>";
+        html+="<div class='buttonContainer'>"
+        html+="<button type='button' class='buyButton btn-default btn'>Buy</button>";
+        html+="</div>";
+        html+="</div>";
+      }
+
+      $(".output").html(html);
+    }
+
+
+    $(document).ready(function(){
+      getOptions();
+      getAds();
+      initEvents();
+      $(".selectContainer").find("select").change();
+      $("body").fadeIn();
+    })
+
+
+</script>
+</body>
+
+  </html>
