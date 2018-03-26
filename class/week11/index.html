@@ -77,11 +77,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <script>
-
-
 function getAds(){
-
   var ads = [
            "https://andersonguelphjs.github.io/class/week11/img/ads/ad1.jpeg",
            "https://andersonguelphjs.github.io/class/week11/img/ads/ad2.jpg",
@@ -123,8 +121,6 @@ for(var key in options){
 
   //write the options to the select
   $(".selectContainer").find("select").html(html);
-
-
 }
 
 //will contain all events
@@ -153,7 +149,7 @@ function writeJSONToDom(d){
   var html="";
   console.log("writeJSONToDom");
   console.dir(d);
-  for( var jsonObj in d){
+  for(var jsonObj in d){
     console.log("an object "+jsonObj);
     console.log(d[jsonObj]);
     html+="<div data id='"+jsonObj+"' class='itemContainer'>"
@@ -161,10 +157,13 @@ function writeJSONToDom(d){
 
 
     for (key in d[jsonObj]){//loop through the keys of each object
+      var str = String(d[jsonObj][key]);
+
       if (key==="itemId"){
         continue;
       }
-      if (d[jsonObj][key].indexOf("github")!==-1){
+      
+      if (str.indexOf("github")!==-1){
         // if github text appears in the value
         html+="<div class='imageContainer'><img src='https://"+d[jsonObj][key]+"'></div>";
       }
