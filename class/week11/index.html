@@ -41,24 +41,22 @@
         <div class="col-md-12 logo">
           Chingdogu.com
         </div>
+      </div>
 
         <div class="row">
           <div class="col-md-12">
             <div class="selectContainer flexSpaceAround">
-            <div class="selectLabel">
-              Choose another product type :
+              <div class="selectLabel">
+                Choose another product type :
+              </div>
+              <div>
+                <select class="form-control" name="">
+                </select>
+              </div>
             </div>
-            <div>
-              <select class="form-control" name="">
-              </select>
-      </div>
-
+        </div>
         </div>
 
-
-        </div>
-
-      </div>
       <div class="row">
         <div class="col-md-2 adsLeft">
         </div>
@@ -67,15 +65,14 @@
         <div class="col-md-2 adsRight">
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-12 footer">
-
           <hr /><span>© 2018 Chindogu.com</span>
-
-
         </div>
       </div>
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -115,7 +112,8 @@ function getOptions(){
 
   var options = {
         "Anderson 1": "https://andersonguelphjs.github.io/class/week11/myJSON.json",
-        "Anderson 2": "https://andersonguelphjs.github.io/class/week11/myJSON2.json"
+        "Anderson 2": "https://andersonguelphjs.github.io/class/week11/myJSON2.json",
+        "Zabrina": "https://zabrinabolasco.github.io/class/week11/zab.json"
       };
 //loop through subject
 for(var key in options){
@@ -174,7 +172,6 @@ function writeJSONToDom(d){
         html+="<div class='"+key+"'>"+d[jsonObj][key]+"</div>";
         }
       }
-
         html+="</div>";
         html+="<div class='buttonContainer'>"
         html+="<button type='button' class='buyButton btn-default btn'>Buy</button>";
@@ -193,8 +190,6 @@ function writeJSONToDom(d){
       $(".selectContainer").find("select").change();
       $("body").fadeIn();
     })
-
-
 </script>
 </body>
 
