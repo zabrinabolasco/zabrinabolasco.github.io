@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cards Website Template</title>
+  <style media="screen">
+    .outputArray {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .individualCard { /*spaces out the cards */
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+
+    .cardInfo {
+      text-align: center;
+    }
+
+    .itemButton{
+      text-align: right;
+      padding: 10px;
+    }
+    header{
+      background-image: url(header.jpg);
+      color: white;
+      font-size: 100px;
+      text-align: center;
+      height: 200px;
+      width: 100%;
+    }
+
+    footer{
+      padding-top: 400px;
+    }
+
+
+    nav ul{
+      background-color: black;
+      list-style: none;
+      margin: 0 2px;
+      padding: 0;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    nav li {
+       display: inline-block;
+       padding: 5px 5px;
+    }
+
+    nav a {
+      font-weight: normal;
+      padding: 10px 5px;
+      font-size: .80em;
+    }
+
+    nav li {
+      display: inline;
+    }
+
+  </style>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<header>
+  Cities Around The World
+</header>
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 cardSection">
+      </div>
+      <div class="col-md-12">
+        <div class="outputArray">
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="footer">
+          <hr /><span>© Zabrina Bolasco</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+
+
+      //These are your Object Arrays
+      var arrayTopic = [
+        {"name": "Toronto",
+            "population": "2 million",
+            "country": "Canada",
+            "language": "English"
+            },
+
+        {"name": "Tokyo",
+            "population": "13 million",
+            "country": "Japan",
+            "language": "Japanese"},
+
+        {"name": "Paris",
+            "population": "2 million",
+            "country": "France",
+            "language": "French"},
+
+        {"name": "Amsterdam",
+            "population": "850 thousand",
+            "country": "Netherlands",
+            "language": "Dutch"},
+
+        {"name": "Los Angeles",
+            "population": "3.9 million",
+            "country": "USA",
+            "language": "English"}
+
+      ];
+
+      $(document).ready(function() {
+        $(".output").html("test output");
+        var html = ""; // This is the Variable to hold the html -> without this, nothing will show up
+
+        //HERE IS YOUR LOOP
+
+/*      Remember that each card needs the following things:
+        - Gets the user do something such as redirecting to another page (this can be done with buttons, animations, etc.)
+        - Include and style the image
+        - Be organized in a specific way (HINT: Flexbox)
+ */
+
+        for (var i = 0; i < arrayTopic.length; i++) { //change arrayTopic to whatever you
+          html += "<div class='panel panel-default individualCard'>" +
+          //  "<div><img class='img-responsive' src='" + arrayTopic[i].imgUrl + "' /></div>" + //change the red text to the keys in your Array
+            "<div class='cardInfo nameLabel'>" + arrayTopic[i].name + "</div>" + //change the red text to the keys in your Array
+            "<div class='cardInfo ageLabel'>" + arrayTopic[i].population + "</div>" + //change the red text to the keys in your Array
+            "<div class='cardInfo ownerLabel'>" + arrayTopic[i].country + "</div>" + //change the red text to the keys in your Array
+            "<div class='cardInfo ownerLabel'>" + arrayTopic[i].language + "</div>" +
+            "</div>";
+        }
+        $(".outputArray").html(html); //outputs the loop onto the html
+
+      });
+    </script>
+
+
+    <script>
+        // // THIS IS FOR IF YOU WANT TO GET A JSON FILE FROM ONLINE
+        // var url = "https://zabrinabolasco.github.io/class/week8/assets/cities.json" //JSON Link goes here (it's currently a template right now, don't worry about it)
+        // console.log("You need a website — why not do it yourself?"); //message appears so you can test your JavaScript here
+        //
+        // // This is the defined function
+        // function cardShuffle(d) {
+        //   console.dir(d);
+        //
+        //   var html = ""; // This is the variable to hold the html
+        //
+        //   // THIS IS THE LOOP //
+        //
+        //   /*Remember that each card needs the following things:
+        //       - Gets the user do something such as redirecting to another page (this can be done with buttons, animations, etc.)
+        //       - Include an image
+        //       - Be organized in a specific way (HINT: JSON)
+        //   */
+        //
+        //   //Here is the loop of the Array you made
+        //   for (var i = 0; i < d.length; i++) {
+        //     html += "<div>" + d[i].name + "</div>"; //Image
+        //     html += "<div>" + d[i].texture + "</div>"; // Item 1
+        //     html += "<div>" + d[i].temperature + "</div>"; // Item 2
+        //     html += "<div>" + d[i].origin + "</div>"; // Item 3
+        //     html += "<div>" + d[i].twelve + "</div>"; // Item 4
+        //     html += "<button type='button' class='itemButton btn btn-default'>Click!</button>"; //Design your button here, make sure you put
+        //     html += "</div>";
+        //   }
+        //
+        //   //when the document is ready, this loads the JSON into the class 'cardSection' in the html
+        //   $(document).ready(function() {
+        //     $(".cardSection").html(html);
+        //   })
+        // }
+        //
+        // // Gets the JSON from a url
+        // $.get(url)
+        //   .done(function(data) { //what comes back is put into "data"
+        //     console.log("success! ");
+        //     //Takes the "data and pushes it to a function => cardShuffle
+        //     cardShuffle(data);
+        //   })
+        //
+        //   //If it fails, then this message should appear
+        //   .fail(function(data) {
+        //     console.log("failed " + JSON.stringify(data));
+        //   })
+    </script>
+</body>
+
+</html>
