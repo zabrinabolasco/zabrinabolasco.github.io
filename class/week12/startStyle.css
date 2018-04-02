@@ -1,0 +1,129 @@
+/*header*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+@import url(https://fonts.googleapis.com/css?family=Squada+One);
+body {
+  padding-top: 20px;
+  background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
+  display: none;
+}
+
+.flexSpaceAround{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*header*/
+.logo {
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 120px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -3px;
+  line-height: 1;
+  text-shadow: #EDEDED 3px 2px 0;
+  position: relative;
+}
+.logo:after {
+  text-align:center;
+  content:"チンドウグドトコム";
+  position: absolute;
+  left: 8px;
+  top: 32px;
+  background-image: -webkit-linear-gradient(left top, transparent 0%, transparent 25%, #555 25%, #555 50%, transparent 50%, transparent 75%, #555 75%);
+  background-size: 4px 4px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: -5;
+  display: block;
+  text-shadow: none;
+}
+/*footer*/
+hr{
+  border-top:1px solid rgba(0,0,0,.1);
+}
+.footer span{
+  margin: 3em;
+}
+
+/**/
+.ad img{
+  width:100%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+/*selectContainer*/
+.selectContainer{
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 3em;
+  padding-bottom: 2em;
+}
+select{
+  width: auto;
+}
+
+/*output*/
+.itemContainer{
+  width: 200px;
+}
+
+.output{
+  flex-wrap: wrap;
+}
+
+
+.imageContainer{
+  background-color: #333;
+  width: 200px;
+  overflow: hidden;
+}
+.marAndTitle{
+  text-align: center;
+    text-transform: uppercase;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 16px;
+}
+.marAndPrice{
+  text-align: center;
+  font-style: italic;
+  font-size: 11px;
+}
+.checkoutContainer{
+  width:66%;
+}
+.buttonContainer{
+  text-align: center;
+    padding: 10px;
+}
+/*mark 2*/
+@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+.proAndTitle {
+  background-color: #333;
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow: -3px -3px 0 #222, 3px -3px 0 #222, -3px 3px 0 #222, 3px 3px 0 #222, 4px 4px 0 #fff, 5px 5px 0 #fff, 6px 6px 0 #fff, 7px 7px 0 #fff;
+  /* line-height: 0.8em; */
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-size: 26px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.proAndPrice{
+  background-color:#fff;
+  color: #333;
+  font-family: Arvo;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border:1px solid #333;
+}
